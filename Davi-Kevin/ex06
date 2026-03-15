@@ -1,0 +1,29 @@
+<!--
+Data: 02/03/2026
+Autor: Kevin Nozaki e Davi Bressan
+Objetivo:Leia um número n e mostre os n primeiros termos da sequência de Fibonacci.
+
+Exercício-6: Leia um número n e mostre os n primeiros termos da sequência de Fibonacci.
+
+Exemplo:
+n = 12
+Resultado:
+0 1 1 2 3 5 8 13 21 34 55 89 
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+</head>
+<body>
+<h1>Sequencia de Fibonacci (GET)</h1>
+<form action="calcula.php" method="get">
+    <label for="n">Digite um número inteiro:</label>
+    <input type="number" id="n" name="numero" required>
+    <button type="submit">Gerar Fibonacci</button>
+</form>
+
+</body>
+</html>
