@@ -8,8 +8,8 @@ require_once 'includes/header.php';
 <div class="shop-layout">
     <section class="catalog">
         <div class="intro">
-            <h2>Lista de Prodfutos</h2>
-            <p>Produtos disponíveis na farmácia. Escolha a quantridae e adicione ao pedido.</p>
+            <h2>Lista de Produtos</h2>
+            <p>Produtos disponíveis na farmácia. Escolha a quantidade e adicione ao pedido.</p>
         </div>
 
         <?php
@@ -71,13 +71,13 @@ require_once 'includes/header.php';
     <aside class="order-summary" aria-label="Resumo do pedido">
         <h2>Total</h2>
         <div id="cartItems" class="cart-items">
-            <p class="empty-cart">Nenhkum renidio adicionado.</p>
+            <p class="empty-cart">Nenhum item adicionado.</p>
         </div>
         <div class="summary-total">
             <span>Total geral</span>
             <strong id="cartTotal">R$ 0,00</strong>
         </div>
-        <button id="clearCart" class="clear-cart" type="button">Limpra pedido</button>
+        <button id="clearCart" class="clear-cart" type="button">Limpar pedido</button>
     </aside>
 </div>
 
