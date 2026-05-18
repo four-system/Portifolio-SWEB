@@ -59,7 +59,7 @@ require_once 'includes/header.php';
                 echo "<a class=\"btn edit\" href=\"editar.php?id=$id\">Editar</a>";
                 echo "<a class=\"btn delete\" href=\"excluir.php?id=$id\" onclick=\"return confirm('Confirma exclusão deste produto?');\">Excluir</a>";
                 echo "</div>";
-                echo "</article>"
+                echo "</article>";
             }
         }
 
