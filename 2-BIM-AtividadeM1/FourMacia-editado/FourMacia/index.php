@@ -50,7 +50,7 @@ require_once 'includes/header.php';
                 echo "<p class=\"unit-price\">Preço unitário: <strong>R$ $preco</strong></p>";
                 echo "<div class=\"buy-row\">";
                 echo "<label for=\"qty-$id\">Qtd.</label>";
-                echo "<input id=\"qty-$id\" class=\"quantity-input\" type=\"number\" min=\"1\" max=\"$estoque\" value=\"1\" ".($estoque > 0 ? 'disabled' : '').">";
+                echo "<input id=\"qty-$id\" class=\"quantity-input\" type=\"number\" min=\"1\" max=\"$estoque\" value=\"1\" ".($estoque <= 0 ? 'disabled' : '').">";
                 echo "<button class=\"btn add\" type=\"button\" ".($estoque > 0 ? 'disabled' : '').">Adicionar</button>";
                 echo "</div>";
                 echo "<p class=\"item-subtotal\">Subtotal deste remédio: <strong>R$ $preco</strong></p>";
