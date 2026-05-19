@@ -13,10 +13,16 @@ try {
         $pass
     );
 
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(
+        PDO::ATTR_ERRMODE,
+        PDO::ERRMODE_EXCEPTION
+    );
 
 } catch (PDOException $e) {
 
-    echo "Erro na conexão: " . $e->getMessage();
+    die(
+        "Erro na conexão: " . $e->getMessage()
+    );
 
 }
+?>
