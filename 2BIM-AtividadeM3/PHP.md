@@ -203,3 +203,23 @@ sequenceDiagram
     A->>B: Busca hash salvo
     A->>A: password_verify()
     A-->>U: Acesso permitido ou negado
+
+## 7. Proteção contra ataques
+
+### SQL Injection
+
+SQL Injection ocorre quando dados enviados pelo usuário são incorporados indevidamente em comandos SQL. Um atacante pode manipular a consulta para acessar, alterar ou apagar dados. A OWASP recomenda consultas parametrizadas como uma das principais defesas (OWASP, 2026b).
+
+No PHP, deve-se usar PDO com prepared statements:
+
+```php
+<?php
+$pdo = new PDO($dsn, $usuario, $senha);
+
+$stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = :email');
+$stmt->execute(['email' => $_POST['email']]);
+
+$usuario = $stmt->fetch();
+```
+
+A documentação oficial do PHP explica que prepared statements separam os parâmetros dos comandos SQL, reduzindo o risco de injeção quando usados corretamente (PHP, 2026g).
