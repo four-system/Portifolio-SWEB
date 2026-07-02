@@ -316,3 +316,10 @@ session_set_cookie_params([
 session_start();
 session_regenerate_id(true);
 ```
+## 10. Conclusão
+
+A segurança em aplicações web é essencial porque sistemas conectados à Internet lidam com dados reais de pessoas reais. Uma falha pode causar roubo de contas, vazamento de informações, prejuízo financeiro e perda de confiança.
+
+Entre os recursos pesquisados, `password_hash()` e `password_verify()` estão entre os mais importantes, pois senhas são uma das portas principais de acesso aos sistemas. Armazenar senhas corretamente reduz muito o impacto de um vazamento de banco de dados.
+
+Durante a pesquisa, o grupo compreendeu que segurança não depende de uma única função. Ela envolve o uso combinado de boas práticas: hash correto de senhas, criptografia quando houver necessidade de recuperar dados, codificação apenas para representação, consultas preparadas, proteção contra XSS e CSRF, HTTPS, sessões seguras e atualização constante do ambiente PHP.
