@@ -179,3 +179,27 @@ Senhas devem ser armazenadas como hashes fortes, lentos e com salt. O sistema n�
 
 O salt é um valor aleatório combinado à senha antes ou durante o processo de hash. Ele impede que duas senhas iguais gerem resultados iguais e dificulta ataques com tabelas pré-computadas, como rainbow tables. A OWASP recomenda que cada senha tenha um salt único (OWASP, 2026a).
 
+Um algoritmo de hash seguro para senhas precisa ter algumas características:
+
+- ser de mão única;
+- usar salt único;
+- ser propositalmente lento;
+- permitir ajuste de custo;
+- resistir melhor a ataques com GPU e hardware especializado;
+- ser amplamente analisado pela comunidade.
+
+Fluxo correto para cadastro e login:
+
+```mermaid
+sequenceDiagram
+    participant U as Usuário
+    participant A as Aplicação PHP
+    participant B as Banco de dados
+
+    U->>A: Cria conta com senha
+    A->>A: password_hash()
+    A->>B: Salva apenas o hash
+    U->>A: Tenta login
+    A->>B: Busca hash salvo
+    A->>A: password_verify()
+    A-->>U: Acesso permitido ou negado
