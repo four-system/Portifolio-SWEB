@@ -282,3 +282,23 @@ Esses recursos aparecem em vários sistemas reais:
 | Gerenciamento de usuários | autorização, senhas fortes, auditoria | Evitar acessos indevidos a contas administrativas |
 
 Em todos esses casos, segurança não é apenas um detalhe técnico. Ela é parte da confiança entre usuário e sistema. Um sistema escolar, por exemplo, pode não lidar com cartão de crédito, mas ainda assim guarda dados pessoais de estudantes e responsáveis. Por isso, precisa validar entradas, controlar permissões e proteger senhas.
+
+# 9. Boas práticas de segurança em PHP
+
+Boas práticas recomendadas:
+
+- validar dados de entrada antes de processá-los;
+- escapar dados de saída conforme o contexto;
+- usar `password_hash()` e `password_verify()` para senhas;
+- usar prepared statements em consultas SQL;
+- ativar HTTPS;
+- proteger cookies de sessão com `HttpOnly`, `Secure` e `SameSite`;
+- regenerar o ID de sessão após login;
+- manter PHP, servidor e dependências atualizados;
+- não exibir erros detalhados em produção;
+- guardar arquivos de configuração fora da pasta pública;
+- usar permissões mínimas no banco e no sistema de arquivos;
+- registrar logs de eventos importantes;
+- usar autenticação multifator quando possível.
+
+A documentação oficial do PHP afirma que o gerenciamento de sessões HTTP está no centro da segurança web e recomenda habilitar medidas aplicáveis para proteger sessões (PHP, 2026i). O manual também possui uma seção sobre manter o PHP atualizado, pois novas versões corrigem falhas e trazem melhorias de segurança (PHP, 2026a).
