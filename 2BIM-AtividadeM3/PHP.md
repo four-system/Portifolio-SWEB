@@ -302,3 +302,17 @@ Boas práticas recomendadas:
 - usar autenticação multifator quando possível.
 
 A documentação oficial do PHP afirma que o gerenciamento de sessões HTTP está no centro da segurança web e recomenda habilitar medidas aplicáveis para proteger sessões (PHP, 2026i). O manual também possui uma seção sobre manter o PHP atualizado, pois novas versões corrigem falhas e trazem melhorias de segurança (PHP, 2026a).
+
+Exemplo de configuração de cookie de sessão:
+
+```php
+<?php
+session_set_cookie_params([
+    'httponly' => true,
+    'secure' => true,
+    'samesite' => 'Lax',
+]);
+
+session_start();
+session_regenerate_id(true);
+```
