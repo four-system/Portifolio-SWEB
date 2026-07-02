@@ -268,3 +268,17 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
     exit('Token CSRF inválido');
 }
 ```
+## 8. Aplicações práticas
+
+Esses recursos aparecem em vários sistemas reais:
+
+| Sistema | Recursos importantes | Por que são necessários |
+|---|---|---|
+| Login | `password_hash()`, `password_verify()`, sessões seguras | Impedir roubo de conta e exposição de senhas |
+| Comércio eletrônico | HTTPS, criptografia, validação, prepared statements | Proteger compras, dados pessoais e histórico de pedidos |
+| Internet Banking | criptografia, MFA, proteção de sessão, CSRF token | Reduzir risco de fraude financeira |
+| Redes sociais | hash de senha, XSS protection, controle de sessão | Proteger perfis, mensagens e privacidade |
+| Sistemas escolares | controle de acesso, proteção de dados, logs | Proteger notas, dados de alunos e documentos |
+| Gerenciamento de usuários | autorização, senhas fortes, auditoria | Evitar acessos indevidos a contas administrativas |
+
+Em todos esses casos, segurança não é apenas um detalhe técnico. Ela é parte da confiança entre usuário e sistema. Um sistema escolar, por exemplo, pode não lidar com cartão de crédito, mas ainda assim guarda dados pessoais de estudantes e responsáveis. Por isso, precisa validar entradas, controlar permissões e proteger senhas.
