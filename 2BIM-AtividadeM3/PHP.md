@@ -146,3 +146,29 @@ echo $texto;
 ### Por que Base64 não é criptografia
 
 Base64 não é criptografia porque não usa chave secreta, não protege confidencialidade e pode ser revertido por qualquer pessoa. A finalidade é representar dados em um formato compatível com texto, não esconder informação. Portanto, nunca se deve usar Base64 para "proteger" senhas, tokens ou dados pessoais.
+
+## 5. Criptografia no PHP com OpenSSL
+
+OpenSSL é uma biblioteca de criptografia e comunicação segura. Segundo o projeto OpenSSL, ela é um toolkit robusto para criptografia de propósito geral e comunicação segura (OPENSSL, 2026). A documentação do OpenSSL também descreve o projeto como um conjunto de ferramentas que implementa SSL/TLS e padrões criptográficos relacionados (OPENSSL, 2025).
+
+No PHP, a extensão OpenSSL permite usar funções de criptografia, descriptografia, assinatura, verificação de certificados e geração de dados aleatórios. Para criptografar e descriptografar informações, duas funções importantes são:
+
+- `openssl_encrypt()`: criptografa dados;
+- `openssl_decrypt()`: descriptografa dados.
+
+Exemplo simplificado com AES-256-CBC:
+
+```php
+<?php
+$metodo = 'aes-256-cbc';
+$chave = random_bytes(32);
+$iv = random_bytes(openssl_cipher_iv_length($metodo));
+
+$texto = 'Informação sensível';
+$cifrado = openssl_encrypt($texto, $metodo, $chave, OPENSSL_RAW_DATA, $iv);
+$original = openssl_decrypt($cifrado, $metodo, $chave, OPENSSL_RAW_DATA, $iv);
+
+echo $original;
+```
+
+Esse exemplo mostra o conceito, mas em produção é necessário armazenar a chave com segurança, usar IV aleatório, autenticar o texto cifrado quando o modo escolhido não faz isso automaticamente e evitar algoritmos antigos. Para novas aplicações, é preferível usar modos autenticados, como AES-GCM, quando disponíveis no ambiente.
