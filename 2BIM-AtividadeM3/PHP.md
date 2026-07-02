@@ -128,3 +128,17 @@ $codificado = base64_encode($texto);
 
 echo $codificado;
 ```
+
+### `base64_decode()`
+
+A função `base64_decode()` faz o processo inverso: recebe uma string em Base64 e retorna os dados originais (PHP, 2026f).
+
+Exemplo:
+
+```php
+<?php
+$codificado = 'T2zDoSwgbXVuZG8h';
+$texto = base64_decode($codificado);
+
+echo $texto;
+```
