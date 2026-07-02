@@ -142,3 +142,7 @@ $texto = base64_decode($codificado);
 
 echo $texto;
 ```
+
+### Por que Base64 não é criptografia
+
+Base64 não é criptografia porque não usa chave secreta, não protege confidencialidade e pode ser revertido por qualquer pessoa. A finalidade é representar dados em um formato compatível com texto, não esconder informação. Portanto, nunca se deve usar Base64 para "proteger" senhas, tokens ou dados pessoais.
