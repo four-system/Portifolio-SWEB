@@ -20,7 +20,7 @@ Os principais riscos em aplicações desenvolvidas para a Internet incluem:
 - Cross-Site Scripting (XSS);
 - Cross-Site Request Forgery (CSRF);
 - sequestro de sessão;
-- uso de bibliotecas ou versões desatualizadas;
+- uso de bibliotecas ou versões desatualizadas; 
 - exposição de arquivos de configuração;
 - falhas de validação de entrada;
 - ausência de HTTPS.
@@ -58,6 +58,7 @@ flowchart LR
     H --> I["Decodificação"]
     I --> A
 ```
+
 ## 3. Funções de hash no PHP
 
 ### `password_hash()`
@@ -111,3 +112,19 @@ echo $resumo;
 ### Algoritmos recomendados atualmente
 
 Para senhas, os algoritmos recomendados são os próprios para password hashing, especialmente `PASSWORD_ARGON2ID` quando disponível e bem configurado, ou `PASSWORD_DEFAULT`/bcrypt para compatibilidade com PHP. A OWASP recomenda Argon2id, bcrypt ou PBKDF2 para armazenamento de senhas (OWASP, 2026a). No PHP, `password_hash()` oferece suporte a `PASSWORD_BCRYPT`, `PASSWORD_ARGON2I` e `PASSWORD_ARGON2ID`, dependendo da compilação do ambiente (PHP, 2026b).
+
+## 4. Funções de codificação
+
+### `base64_encode()`
+
+A função `base64_encode()` codifica uma string em Base64. Ela é usada quando dados binários precisam ser representados em texto, por exemplo ao embutir uma imagem pequena em JSON, transmitir bytes em APIs ou armazenar dados binários em um formato textual (PHP, 2026e).
+
+Exemplo:
+
+```php
+<?php
+$texto = 'Olá, mundo!';
+$codificado = base64_encode($texto);
+
+echo $codificado;
+```
