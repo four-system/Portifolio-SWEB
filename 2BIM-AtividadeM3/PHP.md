@@ -172,3 +172,10 @@ echo $original;
 ```
 
 Esse exemplo mostra o conceito, mas em produção é necessário armazenar a chave com segurança, usar IV aleatório, autenticar o texto cifrado quando o modo escolhido não faz isso automaticamente e evitar algoritmos antigos. Para novas aplicações, é preferível usar modos autenticados, como AES-GCM, quando disponíveis no ambiente.
+
+## 6. Proteção de senhas
+
+Senhas devem ser armazenadas como hashes fortes, lentos e com salt. O sistema não deve guardar a senha original, pois um vazamento de banco de dados exporia imediatamente todas as contas. Com `password_hash()`, o PHP gera automaticamente um salt seguro quando ele não é informado manualmente, e a documentação recomenda usar esse comportamento padrão (PHP, 2026b).
+
+O salt é um valor aleatório combinado à senha antes ou durante o processo de hash. Ele impede que duas senhas iguais gerem resultados iguais e dificulta ataques com tabelas pré-computadas, como rainbow tables. A OWASP recomenda que cada senha tenha um salt único (OWASP, 2026a).
+
