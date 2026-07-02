@@ -223,3 +223,48 @@ $usuario = $stmt->fetch();
 ```
 
 A documentação oficial do PHP explica que prepared statements separam os parâmetros dos comandos SQL, reduzindo o risco de injeção quando usados corretamente (PHP, 2026g).
+
+### Cross-Site Scripting (XSS)
+
+XSS ocorre quando um atacante consegue inserir JavaScript malicioso em uma página acessada por outros usuários. Isso pode roubar cookies, manipular a interface ou executar ações em nome da vítima. A OWASP recomenda escapar saídas conforme o contexto, usar codificação adequada e aplicar Content Security Policy como camada adicional (OWASP, 2026c).
+
+No PHP, uma defesa básica para saída em HTML é `htmlspecialchars()`:
+
+```php
+<?php
+echo htmlspecialchars($nome, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+```
+
+A função converte caracteres especiais em entidades HTML, evitando que o navegador interprete conteúdo do usuário como marcação ou script (PHP, 2026h).
+
+### Cross-Site Request Forgery (CSRF)
+
+CSRF ocorre quando um site malicioso induz o navegador de um usuário autenticado a enviar uma requisição para outro sistema no qual ele já está logado. Como cookies de sessão podem ser enviados automaticamente, a aplicação pode confundir a ação forjada com uma ação legítima. A OWASP recomenda tokens anti-CSRF, cookies com atributos de segurança e validação de origem em cenários adequados (OWASP, 2026d).
+
+Exemplo simples de token:
+
+```php
+<?php
+session_start();
+
+if (empty($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
+```
+
+No formulário:
+
+```php
+<input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf']) ?>">
+```
+
+Na validação:
+
+```php
+<?php
+if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
+    http_response_code(403);
+    exit('Token CSRF inválido');
+}
+```
+
