@@ -268,6 +268,7 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
     exit('Token CSRF inválido');
 }
 ```
+
 ## 8. Aplicações práticas
 
 Esses recursos aparecem em vários sistemas reais:
@@ -283,7 +284,7 @@ Esses recursos aparecem em vários sistemas reais:
 
 Em todos esses casos, segurança não é apenas um detalhe técnico. Ela é parte da confiança entre usuário e sistema. Um sistema escolar, por exemplo, pode não lidar com cartão de crédito, mas ainda assim guarda dados pessoais de estudantes e responsáveis. Por isso, precisa validar entradas, controlar permissões e proteger senhas.
 
-# 9. Boas práticas de segurança em PHP
+## 9. Boas práticas de segurança em PHP
 
 Boas práticas recomendadas:
 
@@ -316,6 +317,7 @@ session_set_cookie_params([
 session_start();
 session_regenerate_id(true);
 ```
+
 ## 10. Conclusão
 
 A segurança em aplicações web é essencial porque sistemas conectados à Internet lidam com dados reais de pessoas reais. Uma falha pode causar roubo de contas, vazamento de informações, prejuízo financeiro e perda de confiança.
@@ -323,3 +325,43 @@ A segurança em aplicações web é essencial porque sistemas conectados à Inte
 Entre os recursos pesquisados, `password_hash()` e `password_verify()` estão entre os mais importantes, pois senhas são uma das portas principais de acesso aos sistemas. Armazenar senhas corretamente reduz muito o impacto de um vazamento de banco de dados.
 
 Durante a pesquisa, o grupo compreendeu que segurança não depende de uma única função. Ela envolve o uso combinado de boas práticas: hash correto de senhas, criptografia quando houver necessidade de recuperar dados, codificação apenas para representação, consultas preparadas, proteção contra XSS e CSRF, HTTPS, sessões seguras e atualização constante do ambiente PHP.
+
+## Referências
+
+ANPD. **Guia orientativo sobre segurança da informação para agentes de tratamento de pequeno porte**. Brasília: Autoridade Nacional de Proteção de Dados, 2025. Disponível em: <https://www.gov.br/anpd/pt-br/documentos-e-publicacoes/guia-vf.pdf>. Acesso em: 1 jul. 2026.
+
+CERT.br. **Cartilha de Segurança para Internet**. São Paulo: Comitê Gestor da Internet no Brasil, 2026. Disponível em: <https://cartilha.cert.br/>. Acesso em: 1 jul. 2026.
+
+OPENSSL. **OpenSSL Library**. 2026. Disponível em: <https://openssl-library.org/>. Acesso em: 1 jul. 2026.
+
+OPENSSL. **OpenSSL Documentation: command summary**. 2025. Disponível em: <https://docs.openssl.org/3.5/man1/openssl/>. Acesso em: 1 jul. 2026.
+
+OWASP. **Password Storage Cheat Sheet**. OWASP Cheat Sheet Series, 2026a. Disponível em: <https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html>. Acesso em: 1 jul. 2026.
+
+OWASP. **SQL Injection Prevention Cheat Sheet**. OWASP Cheat Sheet Series, 2026b. Disponível em: <https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html>. Acesso em: 1 jul. 2026.
+
+OWASP. **Cross Site Scripting Prevention Cheat Sheet**. OWASP Cheat Sheet Series, 2026c. Disponível em: <https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html>. Acesso em: 1 jul. 2026.
+
+OWASP. **Cross-Site Request Forgery Prevention Cheat Sheet**. OWASP Cheat Sheet Series, 2026d. Disponível em: <https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html>. Acesso em: 1 jul. 2026.
+
+PHP. **Security**. PHP Manual, 2026a. Disponível em: <https://www.php.net/manual/en/security.php>. Acesso em: 1 jul. 2026.
+
+PHP. **password_hash**. PHP Manual, 2026b. Disponível em: <https://www.php.net/manual/en/function.password-hash.php>. Acesso em: 1 jul. 2026.
+
+PHP. **password_verify**. PHP Manual, 2026c. Disponível em: <https://www.php.net/manual/en/function.password-verify.php>. Acesso em: 1 jul. 2026.
+
+PHP. **hash**. PHP Manual, 2026d. Disponível em: <https://www.php.net/manual/en/function.hash.php>. Acesso em: 1 jul. 2026.
+
+PHP. **base64_encode**. PHP Manual, 2026e. Disponível em: <https://www.php.net/manual/en/function.base64-encode.php>. Acesso em: 1 jul. 2026.
+
+PHP. **base64_decode**. PHP Manual, 2026f. Disponível em: <https://www.php.net/manual/en/function.base64-decode.php>. Acesso em: 1 jul. 2026.
+
+PHP. **Prepared statements and stored procedures**. PHP Manual, 2026g. Disponível em: <https://www.php.net/manual/en/pdo.prepared-statements.php>. Acesso em: 1 jul. 2026.
+
+PHP. **htmlspecialchars**. PHP Manual, 2026h. Disponível em: <https://www.php.net/manual/en/function.htmlspecialchars.php>. Acesso em: 1 jul. 2026.
+
+PHP. **Sessions and Security**. PHP Manual, 2026i. Disponível em: <https://www.php.net/manual/en/session.security.php>. Acesso em: 1 jul. 2026.
+
+PHP. **openssl_encrypt**. PHP Manual, 2026j. Disponível em: <https://www.php.net/manual/en/function.openssl-encrypt.php>. Acesso em: 1 jul. 2026.
+
+PHP. **openssl_decrypt**. PHP Manual, 2026k. Disponível em: <https://www.php.net/manual/en/function.openssl-decrypt.php>. Acesso em: 1 jul. 2026.
