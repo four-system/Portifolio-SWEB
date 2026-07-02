@@ -203,6 +203,7 @@ sequenceDiagram
     A->>B: Busca hash salvo
     A->>A: password_verify()
     A-->>U: Acesso permitido ou negado
+```
 
 ## 7. Proteção contra ataques
 
@@ -267,4 +268,3 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
     exit('Token CSRF inválido');
 }
 ```
-
