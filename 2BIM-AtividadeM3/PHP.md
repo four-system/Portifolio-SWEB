@@ -58,3 +58,56 @@ flowchart LR
     H --> I["Decodificação"]
     I --> A
 ```
+## 3. Funções de hash no PHP
+
+### `password_hash()`
+
+A função `password_hash()` cria um hash de senha usando um algoritmo forte de mão única. Segundo a documentação oficial, ela inclui no próprio resultado as informações necessárias para verificação, como algoritmo, custo e salt (PHP, 2026b). Isso torna a função adequada para cadastro de usuários.
+
+Exemplo:
+
+```php
+<?php
+$senha = 'MinhaSenhaForte123!';
+$hash = password_hash($senha, PASSWORD_DEFAULT);
+
+echo $hash;
+```
+
+O `PASSWORD_DEFAULT` usa o algoritmo padrão definido pelo PHP. Atualmente, a documentação oficial informa que esse padrão é bcrypt, mas a constante foi criada para poder mudar no futuro quando algoritmos mais fortes forem adotados (PHP, 2026b). Por isso, recomenda-se reservar espaço suficiente no banco de dados, por exemplo `VARCHAR(255)`.
+
+### `password_verify()`
+
+A função `password_verify()` verifica se uma senha informada corresponde a um hash já armazenado. Ela é usada no login, comparando a senha digitada com o hash salvo no banco (PHP, 2026c).
+
+Exemplo:
+
+```php
+<?php
+$senhaDigitada = $_POST['senha'] ?? '';
+$hashSalvo = '$2y$12$exemplo...'; // valor vindo do banco
+
+if (password_verify($senhaDigitada, $hashSalvo)) {
+    echo 'Login permitido';
+} else {
+    echo 'Senha inválida';
+}
+```
+
+### `hash()`
+
+A função `hash()` gera um resumo usando algoritmos como `sha256`, `sha512` e outros. Ela é útil para integridade de arquivos, assinaturas, comparação de dados e checksums, mas não deve ser a escolha principal para armazenar senhas de usuários, pois algoritmos rápidos como SHA-256 permitem muitas tentativas por segundo em ataques de força bruta (PHP, 2026d; OWASP, 2026a).
+
+Exemplo de uso adequado:
+
+```php
+<?php
+$conteudo = file_get_contents('arquivo.pdf');
+$resumo = hash('sha256', $conteudo);
+
+echo $resumo;
+```
+
+### Algoritmos recomendados atualmente
+
+Para senhas, os algoritmos recomendados são os próprios para password hashing, especialmente `PASSWORD_ARGON2ID` quando disponível e bem configurado, ou `PASSWORD_DEFAULT`/bcrypt para compatibilidade com PHP. A OWASP recomenda Argon2id, bcrypt ou PBKDF2 para armazenamento de senhas (OWASP, 2026a). No PHP, `password_hash()` oferece suporte a `PASSWORD_BCRYPT`, `PASSWORD_ARGON2I` e `PASSWORD_ARGON2ID`, dependendo da compilação do ambiente (PHP, 2026b).
