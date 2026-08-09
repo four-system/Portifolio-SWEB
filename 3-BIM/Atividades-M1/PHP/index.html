@@ -1,7 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
-<head> 
-    <header>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Criptografia no PHP</title>
+
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<header>
     <h1>Criptografia no PHP</h1>
 
     <p>
@@ -9,272 +25,323 @@
         disponíveis no PHP.
     </p>
 </header>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criptografia no PHP</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<section class="introducao">
 
-    <h2>O que é criptografia?</h2>
+
+<main>
+
+    <section class="introducao">
+
+        <h2>O que é criptografia?</h2>
+
+        <p>
+            Criptografia é uma técnica utilizada para proteger informações,
+            transformando os dados de uma forma que dificulta o acesso de
+            pessoas não autorizadas.
+        </p>
+
+        <p>
+            No PHP existem diferentes funções relacionadas à segurança,
+            como funções de hash, criptografia e codificação. Cada uma
+            possui uma finalidade diferente.
+        </p>
+
+    </section>
+
+
+    <section>
+
+        <h2>Métodos disponíveis</h2>
+
+
+        <div class="card">
+
+            <h3>MD5</h3>
+
+            <p>
+                O MD5 é uma função de hash que transforma uma informação
+                em uma sequência de 32 caracteres. O resultado possui
+                128 bits.
+            </p>
+
+            <h4>Como funciona?</h4>
+
+            <p>
+                O texto é processado por um algoritmo matemático que gera
+                um valor fixo chamado hash. Mesmo que o texto tenha um
+                tamanho diferente, o resultado do MD5 sempre terá o mesmo
+                tamanho.
+            </p>
+
+            <h4>Principais usos</h4>
+
+            <ul>
+                <li>Verificação de arquivos.</li>
+                <li>Identificação de dados.</li>
+                <li>Sistemas antigos.</li>
+            </ul>
+
+            <h4>Segurança</h4>
+
+            <p class="alerta">
+                Atualmente o MD5 não é recomendado para proteger senhas,
+                pois existem métodos capazes de encontrar colisões e
+                quebrar hashes MD5 com relativa facilidade.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>SHA-1</h3>
+
+            <p>
+                SHA-1 é outra função de hash. Ela produz um resultado
+                de 160 bits, normalmente representado por 40 caracteres
+                em hexadecimal.
+            </p>
+
+            <h4>Como funciona?</h4>
+
+            <p>
+                Assim como o MD5, o SHA-1 recebe uma informação e produz
+                um hash de tamanho fixo. Uma pequena alteração no texto
+                normalmente gera um resultado completamente diferente.
+            </p>
+
+            <h4>Principais usos</h4>
+
+            <ul>
+                <li>Verificação de integridade.</li>
+                <li>Sistemas antigos.</li>
+                <li>Identificação de arquivos.</li>
+            </ul>
+
+            <h4>Segurança</h4>
+
+            <p class="alerta">
+                O SHA-1 também não é recomendado atualmente para novas
+                aplicações que precisam de segurança criptográfica.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>SHA-256</h3>
+
+            <p>
+                SHA-256 faz parte da família SHA-2 e gera um hash de
+                256 bits, normalmente representado por 64 caracteres
+                hexadecimais.
+            </p>
+
+            <h4>Como funciona?</h4>
+
+            <p>
+                O algoritmo recebe os dados e realiza várias operações
+                matemáticas para produzir um hash. O resultado é
+                praticamente impossível de ser revertido diretamente
+                para o texto original.
+            </p>
+
+            <h4>Principais usos</h4>
+
+            <ul>
+                <li>Verificação de integridade de arquivos.</li>
+                <li>Assinaturas digitais.</li>
+                <li>Sistemas de segurança.</li>
+                <li>Blockchain e outras aplicações.</li>
+            </ul>
+
+            <h4>Segurança</h4>
+
+            <p class="sucesso">
+                É muito mais seguro que MD5 e SHA-1 para várias aplicações
+                criptográficas.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>password_hash()</h3>
+
+            <p>
+                A função password_hash() é disponibilizada pelo PHP para
+                criar hashes próprios para armazenamento seguro de senhas.
+            </p>
+
+            <h4>Como funciona?</h4>
+
+            <p>
+                O PHP aplica um algoritmo específico para senhas e adiciona
+                automaticamente um valor aleatório chamado salt. Isso faz
+                com que duas senhas iguais possam gerar hashes diferentes.
+            </p>
+
+            <h4>Principais usos</h4>
+
+            <ul>
+                <li>Cadastro de usuários.</li>
+                <li>Sistemas de login.</li>
+                <li>Armazenamento de senhas.</li>
+            </ul>
+
+            <h4>Segurança</h4>
+
+            <p class="sucesso">
+                É a opção recomendada pelo próprio PHP para armazenar
+                senhas de usuários.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Base64</h3>
+
+            <p>
+                Base64 é diferente dos métodos anteriores. Ele não é
+                criptografia nem hash. É uma forma de codificação que
+                transforma dados em caracteres que podem ser facilmente
+                transmitidos e armazenados.
+            </p>
+
+            <h4>Como funciona?</h4>
+
+            <p>
+                Os dados são convertidos para uma representação baseada
+                em caracteres. O resultado pode ser convertido novamente
+                para o conteúdo original.
+            </p>
+
+            <h4>Principais usos</h4>
+
+            <ul>
+                <li>Envio de dados pela internet.</li>
+                <li>Representação de arquivos.</li>
+                <li>Imagens e documentos em sistemas web.</li>
+                <li>Comunicação entre aplicações.</li>
+            </ul>
+
+            <h4>Segurança</h4>
+
+            <p class="alerta">
+                Base64 não protege informações. Qualquer pessoa pode
+                decodificar o conteúdo, portanto não deve ser utilizado
+                para esconder senhas ou informações secretas.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="comparacao">
+
+        <h2>Diferenças entre os métodos</h2>
+
+        <div class="tabela-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Método</th>
+                        <th>Tipo</th>
+                        <th>Tamanho</th>
+                        <th>Uso recomendado</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>MD5</td>
+                        <td>Hash</td>
+                        <td>128 bits</td>
+                        <td>Legado / verificações simples</td>
+                    </tr>
+
+                    <tr>
+                        <td>SHA-1</td>
+                        <td>Hash</td>
+                        <td>160 bits</td>
+                        <td>Legado</td>
+                    </tr>
+
+                    <tr>
+                        <td>SHA-256</td>
+                        <td>Hash</td>
+                        <td>256 bits</td>
+                        <td>Integridade e segurança</td>
+                    </tr>
+
+                    <tr>
+                        <td>password_hash()</td>
+                        <td>Hash de senha</td>
+                        <td>Variável</td>
+                        <td>Senhas</td>
+                    </tr>
+
+                    <tr>
+                        <td>Base64</td>
+                        <td>Codificação</td>
+                        <td>Variável</td>
+                        <td>Transmissão de dados</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <section class="teste">
+
+        <h2>Teste na prática</h2>
+
+        <p>
+            Digite uma palavra ou frase para ver como os diferentes
+            métodos transformam o mesmo conteúdo.
+        </p>
+
+        <form action="processar.php" method="POST">
+
+            <input
+                type="text"
+                name="texto"
+                placeholder="Digite um texto..."
+                required
+            >
+
+            <button type="submit">
+                Testar métodos
+            </button>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<footer>
 
     <p>
-        Criptografia é uma técnica utilizada para proteger informações,
-        transformando os dados de uma forma que dificulta o acesso de
-        pessoas não autorizadas.
+        Trabalho sobre Criptografia no PHP
     </p>
 
-    <p>
-        No PHP existem diferentes funções relacionadas à segurança,
-        como funções de hash, criptografia e codificação. Cada uma
-        possui uma finalidade diferente.
-    </p>
-<section>
-
-    <h2>Métodos disponíveis</h2>
-
-    <div class="card">
-
-    <h3>MD5</h3>
-
-    <p>
-        O MD5 é uma função de hash que transforma uma informação
-        em uma sequência de 32 caracteres. O resultado possui
-        128 bits.
-    </p>
-
-    <h4>Como funciona?</h4>
-
-    <p>
-        O texto é processado por um algoritmo matemático que gera
-        um valor fixo chamado hash. Mesmo que o texto tenha um
-        tamanho diferente, o resultado do MD5 sempre terá o mesmo
-        tamanho.
-    </p>
-
-    <h4>Principais usos</h4>
-
-    <ul>
-        <li>Verificação de arquivos.</li>
-        <li>Identificação de dados.</li>
-        <li>Sistemas antigos.</li>
-    </ul>
-
-    <h4>Segurança</h4>
-
-    <p class="alerta">
-        Atualmente o MD5 não é recomendado para proteger senhas,
-        pois existem métodos capazes de encontrar colisões e
-        quebrar hashes MD5 com relativa facilidade.
-    </p>
-
-</div>
-
-    <div class="card">
-
-    <h3>SHA-1</h3>
-
-    <p>
-        SHA-1 é uma função de hash que produz um resultado
-        de 160 bits, normalmente representado por 40 caracteres
-        em hexadecimal.
-    </p>
-
-    <h4>Como funciona?</h4>
-
-    <p>
-        O SHA-1 recebe uma informação e realiza operações
-        matemáticas para produzir um hash de tamanho fixo.
-        Uma pequena alteração no texto normalmente gera um
-        resultado completamente diferente.
-    </p>
-
-    <h4>Principais usos</h4>
-
-    <ul>
-        <li>Verificação de integridade.</li>
-        <li>Sistemas antigos.</li>
-        <li>Identificação de arquivos.</li>
-    </ul>
-
-    <h4>Segurança</h4>
-
-    <p class="alerta">
-        O SHA-1 não é recomendado atualmente para novas
-        aplicações que precisam de segurança criptográfica.
-    </p>
-
-</div>
-
-    <div class="card">
-
-    <h3>SHA-256</h3>
-
-    <p>
-        SHA-256 faz parte da família SHA-2 e gera um hash de
-        256 bits, normalmente representado por 64 caracteres
-        hexadecimais.
-    </p>
-
-    <h4>Como funciona?</h4>
-
-    <p>
-        O algoritmo recebe os dados e realiza várias operações
-        matemáticas para produzir um hash. O resultado não
-        pode ser simplesmente revertido para obter o texto
-        original.
-    </p>
-
-    <h4>Principais usos</h4>
-
-    <ul>
-        <li>Verificação de integridade de arquivos.</li>
-        <li>Assinaturas digitais.</li>
-        <li>Sistemas de segurança.</li>
-        <li>Blockchain e outras aplicações.</li>
-    </ul>
-
-    <h4>Segurança</h4>
-
-    <p class="sucesso">
-        É muito mais seguro que MD5 e SHA-1 para várias
-        aplicações criptográficas.
-    </p>
-
-</div>
-
-    <div class="card">
-
-    <h3>password_hash()</h3>
-
-    <p>
-        A função password_hash() é disponibilizada pelo PHP para
-        criar hashes próprios para armazenamento seguro de senhas.
-    </p>
-
-    <h4>Como funciona?</h4>
-
-    <p>
-        O PHP aplica um algoritmo específico para senhas e adiciona
-        automaticamente um valor aleatório chamado salt. Isso faz
-        com que duas senhas iguais possam gerar hashes diferentes.
-    </p>
-
-    <h4>Principais usos</h4>
-
-    <ul>
-        <li>Cadastro de usuários.</li>
-        <li>Sistemas de login.</li>
-        <li>Armazenamento de senhas.</li>
-    </ul>
-
-    <h4>Segurança</h4>
-
-    <p class="sucesso">
-        É a opção recomendada pelo PHP para armazenar
-        senhas de usuários.
-    </p>
-
-</div>
-
-    <div class="card">
-
-    <h3>Base64</h3>
-
-    <p>
-        Base64 é diferente dos métodos anteriores. Ele não é
-        criptografia nem hash. É uma forma de codificação que
-        transforma dados em caracteres que podem ser facilmente
-        transmitidos e armazenados.
-    </p>
-
-    <h4>Como funciona?</h4>
-
-    <p>
-        Os dados são convertidos para uma representação baseada
-        em caracteres. O resultado pode ser convertido novamente
-        para o conteúdo original.
-    </p>
-
-    <h4>Principais usos</h4>
-
-    <ul>
-        <li>Envio de dados pela internet.</li>
-        <li>Representação de arquivos.</li>
-        <li>Imagens e documentos em sistemas web.</li>
-        <li>Comunicação entre aplicações.</li>
-    </ul>
-
-    <h4>Segurança</h4>
-
-    <p class="alerta">
-        Base64 não protege informações. Qualquer pessoa pode
-        decodificar o conteúdo.
-    </p>
-
-</div>
-<section class="comparacao">
-
-    <h2>Diferenças entre os métodos</h2>
-
-    <table>
-
-        <thead>
-
-            <tr>
-                <th>Método</th>
-                <th>Tipo</th>
-                <th>Tamanho</th>
-                <th>Uso</th>
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            <tr>
-                <td>MD5</td>
-                <td>Hash</td>
-                <td>128 bits</td>
-                <td>Legado</td>
-            </tr>
-
-            <tr>
-                <td>SHA-1</td>
-                <td>Hash</td>
-                <td>160 bits</td>
-                <td>Legado</td>
-            </tr>
-
-            <tr>
-                <td>SHA-256</td>
-                <td>Hash</td>
-                <td>256 bits</td>
-                <td>Integridade</td>
-            </tr>
-
-            <tr>
-                <td>password_hash()</td>
-                <td>Hash de senha</td>
-                <td>Variável</td>
-                <td>Senhas</td>
-            </tr>
-
-            <tr>
-                <td>Base64</td>
-                <td>Codificação</td>
-                <td>Variável</td>
-                <td>Transmissão</td>
-            </tr>
-
-        </tbody>
-
-    </table>
-
-</section>
-</section>
-</section>
-<body>
+</footer>
+```
 
 </body>
+
 </html>
