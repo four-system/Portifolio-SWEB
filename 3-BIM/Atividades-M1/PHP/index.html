@@ -144,8 +144,38 @@
 </div>
 
     <div class="card">
-        <h3>password_hash()</h3>
-    </div>
+
+    <h3>password_hash()</h3>
+
+    <p>
+        A função password_hash() é disponibilizada pelo PHP para
+        criar hashes próprios para armazenamento seguro de senhas.
+    </p>
+
+    <h4>Como funciona?</h4>
+
+    <p>
+        O PHP aplica um algoritmo específico para senhas e adiciona
+        automaticamente um valor aleatório chamado salt. Isso faz
+        com que duas senhas iguais possam gerar hashes diferentes.
+    </p>
+
+    <h4>Principais usos</h4>
+
+    <ul>
+        <li>Cadastro de usuários.</li>
+        <li>Sistemas de login.</li>
+        <li>Armazenamento de senhas.</li>
+    </ul>
+
+    <h4>Segurança</h4>
+
+    <p class="sucesso">
+        É a opção recomendada pelo PHP para armazenar
+        senhas de usuários.
+    </p>
+
+</div>
 
     <div class="card">
         <h3>Base64</h3>
