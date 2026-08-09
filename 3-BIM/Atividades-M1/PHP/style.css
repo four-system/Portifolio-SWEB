@@ -45,3 +45,54 @@ section h2 {
     font-size: 27px;
 }
 
+.card {
+    background-color: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.card h4 {
+    margin-top: 18px;
+    margin-bottom: 6px;
+}
+
+.card ul {
+    margin-left: 25px;
+}
+
+.alerta {
+    background-color: #fff0f0;
+    padding: 12px;
+    border-left: 4px solid #d93025;
+}
+
+.sucesso {
+    background-color: #eef8ee;
+    padding: 12px;
+    border-left: 4px solid #188038;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #202124;
+    color: white;
+}
+
