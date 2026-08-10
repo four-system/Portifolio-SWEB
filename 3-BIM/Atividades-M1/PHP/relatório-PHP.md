@@ -155,38 +155,6 @@ Durante o desenvolvimento foram utilizados:
 
 ---
 
-## Prints da página
-
-### Página inicial
-
-![Página inicial](./imagens/pagina-inicial.png)
-
-### Página de informações
-
-![Informações sobre criptografia](./imagens/informacoes.png)
-
-### Área de testes
-
-![Área de testes](./imagens/teste-criptografia.png)
-
----
-
-## Prints do código
-
-### Código PHP
-
-![Código PHP](./imagens/codigo-php.png)
-
-### Código CSS
-
-![Código CSS](./imagens/codigo-css.png)
-
-### Estrutura do projeto
-
-![Estrutura do projeto](./imagens/estrutura.png)
-
----
-
 ## Conclusão
 
 Com o desenvolvimento do projeto, foi possível aprender mais sobre *criptografia, hash e codificação*, além de colocar em prática conhecimentos de PHP, HTML e CSS.
