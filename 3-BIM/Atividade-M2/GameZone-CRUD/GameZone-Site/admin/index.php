@@ -57,7 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     foreach ($entities[$type]['fields'] as $field => $config) {
         $record[$field] = trim((string) ($_POST[$field] ?? ''));
-        $isValid = !$config['required'] || $record[$field] !== '';
+
+        if ($config['required'] && $record[$field] === '') {
+            $isValid = false;
+        }
     }
 
     if (!$isValid) {
@@ -154,7 +157,7 @@ $pageTitle = $showForm ? ($editing ? 'Editar ' : 'Cadastrar ') . $entities[$type
             <?php elseif ($config['type'] === 'select'): ?>
               <select id="<?= e($field) ?>" name="<?= e($field) ?>" <?= $config['required'] ? 'required' : '' ?>>
                 <?php foreach ($config['options'] as $value => $label): ?>
-                  <option value="<?= e($value) ?>" <?= (($editing[$field] ?? '') === $value) ? 'selected' : '' ?>><?= e($label) ?></option>
+                  <option value="<?= e($value) ?>" <?= (($editing[$field] ?? '') === $config['options']) ? 'selected' : '' ?>><?= e($label) ?></option>
                 <?php endforeach; ?>
               </select>
             <?php else: ?>
