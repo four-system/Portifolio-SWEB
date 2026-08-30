@@ -30,7 +30,7 @@ navItems.forEach((item) => {
   item.addEventListener("click", closeMenu);
 });
 
-const currentPage = window.location.pathname.split("/").pop() || "index.php";
+const currentPage = window.location.pathname.split("/").pop();
 
 navItems.forEach((item) => {
   if (item.dataset.page === currentPage) {

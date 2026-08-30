@@ -13,7 +13,7 @@ render_header('Notícias | GameZone', 'Notícias recentes do mundo dos jogos no 
 
     <section class="section article-list">
       <?php foreach ($noticias as $index => $noticia): ?>
-        <article class="article-card <?= $index === 1 ? 'featured-card' : '' ?>">
+        <article class="article-card <?= $index === 0 ? 'featured-card' : '' ?>">
           <div class="article-meta">
             <span><?= e($noticia['categoria']) ?></span>
             <time datetime="<?= e($noticia['data']) ?>"><?= date('d/m/Y', strtotime($noticia['data'])) ?></time>
