@@ -54,6 +54,6 @@ function sort_by_date_desc(array $items): array
 
 function page_name(): string
 {
-    return basename((string) parse_url($_SERVER['REQUEST_URI'] ?? 'index.php', PHP_URL_PATH)) ?: 'index.php';
+    return basename((string) parse_url($_SERVER['REQUEST_URI'] ?? 'index.php', PHP_URL_QUERY)) ?: 'index.php';
 }
 ?>
