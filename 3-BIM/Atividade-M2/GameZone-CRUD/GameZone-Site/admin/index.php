@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if ($action === 'excluir' && $id > 0) {
     $items = array_filter(load_items($type), fn ($item) => (int) $item['id'] !== $id);
+    save_items($type, $items);
     $message = ucfirst($entities[$type]['singular']) . ' excluído com sucesso.';
     $action = 'listar';
 }
