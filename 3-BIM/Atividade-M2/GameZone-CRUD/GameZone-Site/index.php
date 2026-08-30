@@ -2,6 +2,7 @@
 require_once __DIR__ . '/includes/layout.php';
 
 $noticias = array_slice(sort_by_date_desc(load_items('noticias')), 0, 2);
+$lancamentos = array_slice(load_items('lancamentos'), 3, 0);
 
 render_header('GameZone | Portal Gamer', 'Página inicial pública do GameZone para clientes.');
 ?>
@@ -19,6 +20,25 @@ render_header('GameZone | Portal Gamer', 'Página inicial pública do GameZone p
           <a href="lancamentos.php" class="btn btn-secondary">Próximos lançamentos</a>
         </div>
       </div>
+
+      <div class="hero-panel" aria-label="Destaques do GameZone">
+        <div class="console-card">
+          <div class="console-screen">
+            <span class="live-dot"></span>
+            <p>Destaque do dia</p>
+            <strong><?= e($lancamentos[0]['titulo'] ?? 'GameZone') ?></strong>
+          </div>
+          <div class="controller">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats" aria-label="Resumo do site">
+      <article><strong><?= count(load_items('noticias')) ?></strong><span>notícias cadastradas</span></article>
+      <article><strong><?= count(load_items('lancamentos')) ?></strong><span>lançamentos cadastrados</span></article>
     </section>
 
     <section class="section page-links">
@@ -32,7 +52,7 @@ render_header('GameZone | Portal Gamer', 'Página inicial pública do GameZone p
           <article class="article-card">
             <div class="article-meta">
               <span><?= e($noticia['categoria']) ?></span>
-              <time datetime="<?= e($noticia['date']) ?>"><?= date('d/m/Y', strtotime($noticia['date'])) ?></time>
+              <time datetime="<?= e($noticia['data']) ?>"><?= date('d/m/Y', strtotime($noticia['data'])) ?></time>
             </div>
             <h3><?= e($noticia['titulo']) ?></h3>
             <p><?= e($noticia['resumo']) ?></p>
