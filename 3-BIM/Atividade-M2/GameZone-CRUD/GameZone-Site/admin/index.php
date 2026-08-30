@@ -53,12 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $postedId = isset($_POST['id']) ? (int) $_POST['id'] : 0;
     $items = load_items($type);
     $record = [];
+    $isValid = true;
 
     foreach ($entities[$type]['fields'] as $field => $config) {
         $record[$field] = trim((string) ($_POST[$field] ?? ''));
+        $isValid = !$config['required'] || $record[$field] !== '';
     }
 
-    if ($postedId > 0) {
+    if (!$isValid) {
+        $message = 'Preencha todos os campos obrigatórios.';
+    } elseif ($postedId > 0) {
         foreach ($items as $index => $item) {
             if ((int) $item['id'] === $postedId) {
                 $record['id'] = $postedId;
