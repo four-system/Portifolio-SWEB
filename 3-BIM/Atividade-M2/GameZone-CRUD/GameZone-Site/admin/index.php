@@ -140,7 +140,7 @@ $pageTitle = $showForm ? ($editing ? 'Editar ' : 'Cadastrar ') . $entities[$type
       <?php if ($showForm): ?>
         <form class="admin-form" method="post">
           <input type="hidden" name="tipo" value="<?= e($type) ?>">
-          <input type="hidden" name="id" value="<?= e((string) ($editing['id'] ?? 0)) ?>">
+          <input type="hidden" name="item_id" value="<?= e((string) ($editing['id'] ?? 0)) ?>">
 
           <?php foreach ($entities[$type]['fields'] as $field => $config): ?>
             <label for="<?= e($field) ?>"><?= e($config['label']) ?></label>

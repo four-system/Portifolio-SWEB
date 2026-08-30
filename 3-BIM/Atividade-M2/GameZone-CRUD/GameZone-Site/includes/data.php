@@ -58,7 +58,9 @@ function find_item(string $type, int $id): ?array
 
 function next_id(array $items): int
 {
-    return count($items) + 1;
+    $ids = array_map(fn ($item) => (int) $item['id'], $items);
+
+    return $ids ? max($ids) + 1 : 1;
 }
 
 function sort_by_date_desc(array $items): array
