@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/includes/layout.php';
+require_once __DIR__ . '/include/layout.php';
 
 render_header('Sobre | GameZone', 'Proposta, público-alvo e identidade visual do GameZone.');
 ?>
