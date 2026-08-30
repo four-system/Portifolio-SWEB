@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "titulo": "Neon Strike",
+    "categoria": "fps",
+    "nota": "8.7",
+    "resumo": "Combate rápido, mapas pequenos e partidas perfeitas para quem gosta de ação competitiva."
+  },
+  {
+    "id": 2,
+    "titulo": "Crystal Quest",
+    "categoria": "rpg",
+    "nota": "9.1",
+    "resumo": "Guia inicial para montar personagens, escolher habilidades e evoluir sem perder recursos."
+  },
+  {
+    "id": 3,
+    "titulo": "Arena League",
+    "categoria": "esports",
+    "nota": "8.9",
+    "resumo": "Times em destaque, próximos campeonatos e mudanças recentes no cenário competitivo."
+  }
+]
