@@ -45,6 +45,22 @@ function save_items(string $type, array $items): void
     );
 }
 
+function find_item(string $type, int $id): ?array
+{
+    foreach (load_items($type) as $item) {
+        if ((int) $item['id'] === $id) {
+            return $item;
+        }
+    }
+
+    return null;
+}
+
+function next_id(array $items): int
+{
+    return count($items) + 1;
+}
+
 function sort_by_date_desc(array $items): array
 {
     usort($items, fn ($a, $b) => strcmp((string) ($b['data'] ?? ''), (string) ($a['data'] ?? '')));
