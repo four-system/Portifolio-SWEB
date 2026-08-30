@@ -73,7 +73,7 @@ render_header('GameZone | Portal Gamer', 'Página inicial pública do GameZone p
       <div class="card-grid">
         <?php foreach ($jogos as $index => $jogo): ?>
           <article class="game-card" data-category="<?= e($jogo['categoria']) ?>">
-            <div class="game-art game-art-<?= ($index % 4) + 1 ?>"><span><?= e(strtoupper($jogo['categoria'])) ?></span></div>
+            <div class="game-art game-art-<?= ($index % 3) + 1 ?>"><span><?= e(strtoupper($jogo['categoria'])) ?></span></div>
             <div class="game-content">
               <p class="tag">Nota <?= e($jogo['nota']) ?></p>
               <h3><?= e($jogo['titulo']) ?></h3>
