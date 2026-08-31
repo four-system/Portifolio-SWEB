@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogos | GameZone</title>
+  <meta name="description" content="Reviews e categorias de jogos no GameZone.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="topo">
+    <nav class="navbar" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="GameZone - início"><img src="assets/gamezone-logo.svg" alt="" class="brand-logo"><span>GameZone</span></a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html" data-page="index.html">Home</a></li>
+        <li><a href="jogos.html" data-page="jogos.html">Jogos</a></li>
+        <li><a href="noticias.html" data-page="noticias.html">Notícias</a></li>
+        <li><a href="lancamentos.html" data-page="lancamentos.html">Lançamentos</a></li>
+        <li><a href="sobre.html" data-page="sobre.html">Sobre</a></li>
+        <li><a href="contato.html" data-page="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <p class="eyebrow">Reviews e recomendações</p>
+      <h1>Jogos em destaque</h1>
+      <p>Cards por categoria para o usuário encontrar rápido o tipo de jogo que mais combina com ele.</p>
+    </section>
+
+    <section class="section games">
+      <div class="filter-bar" aria-label="Filtros de jogos">
+        <button class="filter-btn active" type="button" data-filter="todos">Todos</button>
+        <button class="filter-btn" type="button" data-filter="fps">FPS</button>
+        <button class="filter-btn" type="button" data-filter="rpg">RPG</button>
+        <button class="filter-btn" type="button" data-filter="esports">E-sports</button>
+      </div>
+
+      <div class="card-grid">
+        <article class="game-card" data-category="fps">
+          <div class="game-art game-art-1"><span>FPS</span></div>
+          <div class="game-content">
+            <p class="tag">Review</p>
+            <h2>Neon Strike</h2>
+            <p>Combate rápido, mapas pequenos e partidas perfeitas para quem gosta de ação competitiva.</p>
+          </div>
+        </article>
+        <article class="game-card" data-category="rpg">
+          <div class="game-art game-art-2"><span>RPG</span></div>
+          <div class="game-content">
+            <p class="tag">Dica</p>
+            <h2>Crystal Quest</h2>
+            <p>Guia inicial para montar personagens, escolher habilidades e evoluir sem perder recursos.</p>
+          </div>
+        </article>
+        <article class="game-card" data-category="esports">
+          <div class="game-art game-art-3"><span>Pro</span></div>
+          <div class="game-content">
+            <p class="tag">Ranking</p>
+            <h2>Arena League</h2>
+            <p>Times em destaque, próximos campeonatos e mudanças recentes no cenário competitivo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>GameZone Entertainment - Página de jogos do projeto.</p>
+    <a href="#topo">Voltar ao topo</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

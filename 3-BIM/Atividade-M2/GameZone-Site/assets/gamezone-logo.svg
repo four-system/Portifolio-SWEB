@@ -1,0 +1,13 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Logo GameZone</title>
+  <desc id="desc">Controle gamer neon com a letra G no centro</desc>
+  <rect width="240" height="240" rx="48" fill="#070911"/>
+  <path d="M64 89C51.2 89 40.6 98.9 39.7 111.6L35.9 163.8C34.8 179.7 53.9 188.9 65.8 178.3L89.6 157H150.4L174.2 178.3C186.1 188.9 205.2 179.7 204.1 163.8L200.3 111.6C199.4 98.9 188.8 89 176 89H64Z" fill="#101425" stroke="#23D3FF" stroke-width="8"/>
+  <path d="M75 123H105" stroke="#47FFBD" stroke-width="8" stroke-linecap="round"/>
+  <path d="M90 108V138" stroke="#47FFBD" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="159" cy="113" r="9" fill="#8D4DFF"/>
+  <circle cx="177" cy="132" r="9" fill="#FF6B7A"/>
+  <path d="M132 113C128.7 109.2 123.8 107 118.1 107C106.7 107 98.4 115.7 98.4 127.3C98.4 139 106.9 147.7 118.8 147.7C129.5 147.7 137 141 138.2 130.8H119.9V121.6H149.6C150.1 124.3 150.2 126.5 150.2 128.6C150.2 146.4 137 159 118.6 159C100.2 159 86.2 145.4 86.2 127.3C86.2 109.3 100.2 95.7 118.2 95.7C128.4 95.7 137.3 99.7 143.2 107.2L132 113Z" fill="#F7F8FF"/>
+  <path d="M54 58L70 42H170L186 58" stroke="#8D4DFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 199H170" stroke="#23D3FF" stroke-width="8" stroke-linecap="round"/>
+</svg>
