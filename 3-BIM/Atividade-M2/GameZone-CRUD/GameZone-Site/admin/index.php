@@ -157,7 +157,7 @@ $pageTitle = $showForm ? ($editing ? 'Editar ' : 'Cadastrar ') . $entities[$type
             <?php elseif ($config['type'] === 'select'): ?>
               <select id="<?= e($field) ?>" name="<?= e($field) ?>" <?= $config['required'] ? 'required' : '' ?>>
                 <?php foreach ($config['options'] as $value => $label): ?>
-                  <option value="<?= e($value) ?>" <?= (($editing[$field] ?? '') === $config['options']) ? 'selected' : '' ?>><?= e($label) ?></option>
+                  <option value="<?= e($value) ?>" <?= (($editing[$field] ?? '') === $value) ? 'selected' : '' ?>><?= e($label) ?></option>
                 <?php endforeach; ?>
               </select>
             <?php else: ?>
