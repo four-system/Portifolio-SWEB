@@ -25,9 +25,9 @@
 
 ## Objetivo do projeto
 
-O objetivo do projeto foi desenvolver um **portal gamer em PHP**, o GameZone, evoluindo de uma versão inicial em HTML estático para um site dinâmico com um **CRUD completo** de conteúdos (Notícias, Lançamentos e Jogos), armazenados em arquivos JSON.
+O objetivo do projeto foi desenvolver um **portal gamer em PHP**, o GameZone, evoluindo de uma versão inicial em HTML estático para um site dinâmico com um **CRUD completo** de conteúdos (Notícias, Lançamentos e Jogos), armazenados e gerenciados em um **banco de dados MySQL**.
 
-O desenvolvimento foi realizado em grupo, com os integrantes participando de diferentes etapas do projeto, desde a conversão do site estático para PHP até a criação da área administrativa, validação dos formulários e ajustes finais.
+O desenvolvimento foi realizado em grupo, com os integrantes participando de diferentes etapas do projeto, desde a conversão do site estático para PHP até a integração com o banco de dados, criação da área administrativa, validação dos formulários e ajustes finais.
 
 ---
 
@@ -35,16 +35,10 @@ O desenvolvimento foi realizado em grupo, com os integrantes participando de dif
 
 O GameZone é composto por duas partes:
 
-- **Site público:** Home, Jogos, Notícias, Lançamentos, Sobre e Contato, todas dinâmicas, exibindo o conteúdo cadastrado no CRUD.
+- **Site público:** Home, Jogos, Notícias, Lançamentos, Sobre e Contato, todas dinâmicas, exibindo o conteúdo cadastrado no CRUD e recuperado do banco de dados.
 - **Área administrativa:** painel em `admin/index.php` onde é possível cadastrar, listar, editar e excluir Notícias, Lançamentos e Jogos, com validação de campos obrigatórios.
 
-Os dados são armazenados em arquivos JSON:
-
-- `data/noticias.json`
-- `data/lancamentos.json`
-- `data/jogos.json`
-
-Esses arquivos são lidos e gravados por funções centralizadas em `includes/data.php`.
+Os dados são armazenados e consultados diretamente no **banco de dados MySQL**, estruturado para gerenciar as tabelas de conteúdos. As operações de consulta, inserção, atualização e remoção no banco de dados são centralizadas em scripts de configuração e manipulação de dados (como em `config/` e `includes/`).
 
 ---
 
@@ -64,7 +58,7 @@ Também participou da revisão final do projeto, verificando o funcionamento das
 
 Kevin ficou responsável pela **conversão das páginas públicas** do site.
 
-Converteu `jogos.php`, `noticias.php`, `lancamentos.php`, `sobre.php` e `contato.php` de HTML estático para PHP, fazendo com que as páginas passassem a consumir os dados cadastrados no sistema.
+Converteu `jogos.php`, `noticias.php`, `lancamentos.php`, `sobre.php` e `contato.php` de HTML estático para PHP, fazendo com que as páginas passassem a consumir os dados cadastrados e vindos do banco de dados.
 
 Também realizou ajustes na ordenação da lista de lançamentos, no destaque visual da notícia mais recente e na marcação do item ativo no menu, contribuindo para que todas as páginas públicas funcionassem de maneira dinâmica.
 
@@ -72,19 +66,19 @@ Também realizou ajustes na ordenação da lista de lançamentos, no destaque vi
 
 Gustavo foi responsável pela **conversão inicial da página inicial** de HTML estático para PHP dinâmico.
 
-Criou a base do projeto em PHP, incluindo `includes/data.php` e `includes/layout.php`, e converteu a `index.php` para buscar as notícias mais recentes diretamente do arquivo JSON.
+Criou a base do projeto em PHP, incluindo a estrutura do layout em `includes/layout.php` e a lógica de conexão com o banco de dados, e converteu a `index.php` para buscar as notícias mais recentes diretamente do banco de dados.
 
 Também adicionou o painel de estatísticas, o card de destaque do próximo lançamento e a seção de jogos em destaque na página inicial, além de ajustes no menu de navegação para destacar corretamente a página atual.
 
 ### Davi
 
-Davi ficou responsável pela **construção da área administrativa e implementação do CRUD**.
+Davi ficou responsável pela **construção da área administrativa e implementação do CRUD com banco de dados**.
 
 Criou o `admin/index.php`, com o painel de abas para Notícias, Lançamentos e Jogos, incluindo listagem em tabela, formulário de cadastro e edição.
 
-Também implementou a geração de ID dos novos registros, a edição de itens existentes e a exclusão com confirmação.
+Também implementou a manipulação dos IDs dos registros no banco de dados, a edição de itens existentes e a exclusão com confirmação.
 
-Com isso, o sistema passou a permitir as principais operações do CRUD:
+Com isso, o sistema passou a permitir as principais operações do CRUD integradas ao banco de dados:
 
 - Criar
 - Listar
@@ -99,10 +93,10 @@ Essas operações funcionam para os três tipos de conteúdo: Notícias, Lançam
 
 Durante o desenvolvimento foram utilizados:
 
-- **PHP** — utilizado para o CRUD e para a lógica dinâmica das páginas;
+- **PHP** — utilizado para o CRUD, consultas de banco de dados e lógica dinâmica das páginas;
+- **MySQL / Banco de Dados** — utilizado para o armazenamento e estruturação dos dados de Notícias, Lançamentos e Jogos;
 - **HTML** — utilizado na estrutura inicial do site;
 - **CSS** — utilizado para o design, responsividade e organização visual;
-- **JSON** — utilizado para o armazenamento dos dados de Notícias, Lançamentos e Jogos;
 - **JavaScript** — utilizado para interações no site, como menu e formulário de contato;
 - **GitHub** — utilizado para armazenar o projeto e acompanhar seu desenvolvimento;
 - **Inteligência Artificial (IA)** — utilizada como ferramenta de apoio durante o desenvolvimento.
@@ -137,13 +131,13 @@ Algumas partes do CSS foram desenvolvidas, ajustadas ou revisadas com auxílio d
 - Espaçamentos;
 - Aparência geral das páginas.
 
-Nesse sentido, a IA também foi utilizada para **terceirizar parte do trabalho de estilização**, permitindo que o grupo concentrasse mais tempo na lógica do sistema, no PHP e na implementação do CRUD.
+Nesse sentido, a IA também foi utilizada para **terceirizar parte do trabalho de estilização**, permitindo que o grupo concentrasse mais tempo na lógica do sistema, no PHP e na implementação do CRUD integrado ao banco de dados.
 
 ### Conhecimento e aprendizado
 
 Além do desenvolvimento, a IA foi utilizada como **fonte de conhecimento e aprendizado**.
 
-O grupo fez perguntas sobre PHP, HTML, CSS, JavaScript, JSON e conceitos relacionados ao CRUD para compreender melhor determinadas funcionalidades.
+O grupo fez perguntas sobre PHP, SQL, Banco de Dados, HTML, CSS, JavaScript e conceitos relacionados ao CRUD para compreender melhor determinadas funcionalidades.
 
 As respostas serviram como material de consulta para entender como implementar, modificar ou corrigir recursos do projeto.
 
@@ -157,9 +151,9 @@ Dessa maneira, o uso da Inteligência Artificial fez parte do processo de desenv
 
 ## Conclusão
 
-Com o desenvolvimento do GameZone-Site, foi possível colocar em prática conhecimentos de **PHP, HTML, CSS e JavaScript**, além de organizar o trabalho em grupo e dividir as responsabilidades durante as diferentes etapas do projeto.
+Com o desenvolvimento do GameZone-Site, foi possível colocar em prática conhecimentos de **PHP, Banco de Dados (MySQL), HTML, CSS e JavaScript**, além de organizar o trabalho em grupo e dividir as responsabilidades durante as diferentes etapas do projeto.
 
-O projeto evoluiu de uma versão inicialmente estática para um site dinâmico com **CRUD completo**, passando pela conversão das páginas públicas, construção do painel administrativo, implementação das funcionalidades de cadastro, edição e exclusão, validação dos formulários e ajustes de usabilidade.
+O projeto evoluiu de uma versão inicialmente estática para um site dinâmico com **CRUD completo integrado ao banco de dados**, passando pela conversão das páginas públicas, construção do painel administrativo, implementação das funcionalidades de cadastro, edição e exclusão, validação dos formulários e ajustes de usabilidade.
 
 O trabalho em grupo permitiu que cada integrante contribuísse em diferentes partes do projeto, envolvendo desde a estrutura inicial até a entrega da versão final funcionando corretamente.
 
@@ -168,7 +162,3 @@ Além dos conhecimentos adquiridos nas tecnologias utilizadas, o projeto também
 A IA foi utilizada para auxiliar na correção de erros, no desenvolvimento e aprimoramento do estilo visual e na pesquisa de conhecimentos necessários para a implementação das funcionalidades.
 
 Assim, o GameZone-Site não representou apenas a construção de um sistema funcional, mas também uma oportunidade de aprender a utilizar diferentes ferramentas de desenvolvimento, combinando os conhecimentos adquiridos durante o curso com ferramentas de apoio disponíveis atualmente.
-
----
-
-**Relatório desenvolvido para fins educacionais no curso de Informática para Internet.**
