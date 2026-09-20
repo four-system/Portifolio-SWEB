@@ -25,11 +25,15 @@ CRUDs disponíveis:
 - Lançamentos: criar, listar, editar e excluir.
 - Jogos: criar, listar, editar e excluir.
 
-Os dados são salvos em arquivos JSON dentro da pasta `data/`, sem necessidade de banco de dados.
+Os dados são salvos em banco de dados MySQL/MariaDB usando PDO.
 
 ## Como rodar
 
-Coloque a pasta em um servidor com PHP, como XAMPP, WampServer ou Laragon, e abra:
+1. Coloque a pasta em um servidor com PHP, como XAMPP, WampServer ou Laragon.
+2. Abra o phpMyAdmin.
+3. Importe o arquivo `database.sql`.
+4. Confira os dados de conexão em `config/database.php`.
+5. Abra:
 
 ```text
 http://localhost/GameZone-Site/index.php

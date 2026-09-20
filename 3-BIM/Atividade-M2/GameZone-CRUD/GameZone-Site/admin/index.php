@@ -51,42 +51,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = $_POST['tipo'] ?? $type;
     $type = array_key_exists($type, $entities) ? $type : 'noticias';
     $postedId = isset($_POST['id']) ? (int) $_POST['id'] : 0;
-    $items = load_items($type);
     $record = [];
-    $isValid = true;
 
     foreach ($entities[$type]['fields'] as $field => $config) {
         $record[$field] = trim((string) ($_POST[$field] ?? ''));
-
-        if ($config['required'] && $record[$field] === '') {
-            $isValid = false;
-        }
     }
 
-    if (!$isValid) {
-        $message = 'Preencha todos os campos obrigatórios.';
-    } elseif ($postedId > 0) {
-        foreach ($items as $index => $item) {
-            if ((int) $item['id'] === $postedId) {
-                $record['id'] = $postedId;
-                $items[$index] = $record;
-                break;
-            }
-        }
+    if ($postedId > 0) {
+        update_item($type, $postedId, $record);
         $message = ucfirst($entities[$type]['singular']) . ' atualizado com sucesso.';
     } else {
-        $record['id'] = next_id($items);
-        $items[] = $record;
+        create_item($type, $record);
         $message = ucfirst($entities[$type]['singular']) . ' cadastrado com sucesso.';
     }
 
-    save_items($type, $items);
     $action = 'listar';
 }
 
 if ($action === 'excluir' && $id > 0) {
-    $items = array_filter(load_items($type), fn ($item) => (int) $item['id'] !== $id);
-    save_items($type, $items);
+    delete_item($type, $id);
     $message = ucfirst($entities[$type]['singular']) . ' excluído com sucesso.';
     $action = 'listar';
 }
