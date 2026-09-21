@@ -149,6 +149,41 @@ Dessa maneira, o uso da Inteligência Artificial fez parte do processo de desenv
 
 ---
 
+# Declaração de Uso de Inteligência Artificial (IA)
+
+**Projeto:** GameZone — Portal Gamer  
+**Escopo:** Refinamento, Auditoria e Otimização de Código  
+
+---
+
+## 1. Contexto de Uso
+
+Neste projeto, ferramentas de Inteligência Artificial (IA) foram empregadas como assistentes no desenvolvimento e na revisão técnica do sistema, visando elevar o nível de qualidade, estabilidade e boas práticas do código entregue.
+
+---
+
+## 2. Etapas de Atuação da IA
+
+A IA foi utilizada de forma colaborativa nas seguintes fases:
+
+1. **Refinamento e Otimização de Código:**
+   * Apoio na estruturação das rotinas em **PHP** e **SQL**.
+   * Melhoria na organização das funções e componentes reutilizáveis para manter o código limpo (*clean code*).
+
+2. **Auditoria e Diagnóstico de Falhas:**
+   * Análise do código-fonte concluído para identificação prévia de *bugs*, inconsistências de sintaxe ou brechas de segurança.
+   * Verificação da integração entre o banco de dados e as páginas dinâmicas.
+
+3. **Prevenção de Erros (Resiliência):**
+   * Auxílio na implementação de sanitização e validação de dados para garantir que a aplicação opere sem interrupções indesejadas e livre de erros em tempo de execução.
+
+---
+
+## 3. Responsabilidade e Supervisão Humana
+
+A arquitetura do projeto, as regras de negócio, a estrutura do banco de dados, o design visual e a lógica do portal **GameZone** foram concebidos e geridos pela equipe responsável. A Inteligência Artificial atuou estritamente como uma ferramenta de apoio técnico para validar, otimizar e assegurar a robustez do sistema final.
+
+
 ## Conclusão
 
 Com o desenvolvimento do GameZone-Site, foi possível colocar em prática conhecimentos de **PHP, Banco de Dados (MySQL), HTML, CSS e JavaScript**, além de organizar o trabalho em grupo e dividir as responsabilidades durante as diferentes etapas do projeto.
