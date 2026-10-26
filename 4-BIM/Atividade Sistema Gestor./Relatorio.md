@@ -8,3 +8,7 @@
 
 ---
 
+### 1. Gustavo Bastos — Usuários, níveis de acesso e requisitos
+- Organizar os níveis de acesso do sistema: administrador, gerente e funcionário.
+- Descrever as permissões de cada tipo de usuário.
+- Reunir os requisitos de login, cadastro de clientes, pedidos e registro de vendas.
